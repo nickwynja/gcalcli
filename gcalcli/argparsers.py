@@ -117,6 +117,9 @@ def get_output_parser(parents=[]):
     output_parser.add_argument(
             '--nodeclined', action='store_true', dest='ignore_declined',
             default=False, help='Hide events that have been declined')
+    output_parser.add_argument(
+            '--email', '-e', default=False, dest='alt_address',
+            help='Alternate email address for events')
     auto_width = get_auto_width()
     output_parser.add_argument(
             '--width', '-w', default=auto_width, dest='cal_width',

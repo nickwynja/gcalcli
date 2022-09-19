@@ -305,6 +305,9 @@ class GoogleCalendarInterface:
             event_daynum = self._cal_monday(int(event['s'].strftime('%w')))
             event_allday = is_all_day(event)
 
+            if self.options['ignore_declined'] and self._DeclinedEvent(event):
+                continue
+
             event_end_date = event['e']
             if event_allday:
                 # NOTE(slwaqo): in allDay events end date is always set as
